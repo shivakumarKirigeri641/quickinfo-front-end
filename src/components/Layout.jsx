@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import Logo from './Logo.jsx';
+import ContactDetails from './ContactDetails.jsx';
+import { BUSINESS } from '../lib/business.js';
 
 const sectionLinks = [
   { label: 'Solutions', to: '/#solutions' },
@@ -76,7 +78,7 @@ function Footer() {
   const legal = ({ isActive }) => `text-sm font-semibold transition hover:text-white ${isActive ? 'text-white' : 'text-ink-300'}`;
   return (
     <footer className="bg-ink-900 text-ink-300">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.3fr]">
         <div>
           <Logo light />
           <p className="mt-4 max-w-sm text-sm leading-relaxed">
@@ -98,11 +100,15 @@ function Footer() {
             <li><NavLink to="/terms-and-conditions" className={legal}>Terms &amp; Conditions</NavLink></li>
           </ul>
         </div>
+        <div>
+          <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-white">Contact</h4>
+          <ContactDetails variant="dark" />
+        </div>
       </div>
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} QuickInfo. All rights reserved.</p>
-          <p>Operated by ServerPe App Solutions, India.</p>
+          <p>Operated by {BUSINESS.legalName}, India.</p>
         </div>
       </div>
     </footer>

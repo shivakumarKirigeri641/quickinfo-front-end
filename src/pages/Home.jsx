@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm.jsx';
+import ContactDetails from '../components/ContactDetails.jsx';
 import { getServices } from '../lib/api.js';
 
 const CHANNELS = {
@@ -153,6 +154,9 @@ export default function Home() {
               <li className="flex gap-3"><span className="text-brand-700">✓</span> Approved WhatsApp Business templates</li>
               <li className="flex gap-3"><span className="text-brand-700">✓</span> Your data handled under India's DPDP Act</li>
             </ul>
+            <div className="mt-10 rounded-2xl border border-ink-100 bg-white p-6 shadow-card">
+              <ContactDetails />
+            </div>
           </div>
           <ContactForm services={services} />
         </div>
